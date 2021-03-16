@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+    <script type="text/javascript" src="lib/axios/dist/axios.standalone.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/rollups/hmac-sha256.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/rollups/sha256.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/components/hmac.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/components/enc-base64.js"></script>
+    <script type="text/javascript" src="lib/url-template/url-template.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/sigV4Client.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/apiGatewayClient.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/simpleHttpClient.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/utils.js"></script>
+    <script type="text/javascript" src="apigClient.js"></script>
+
+
+    Select image:<br>
+    <input type="file" id="inp" name="img" accept="image/*">
+    <br/>
+    Label:<br>
+    <input type='text' id='label'>
+    <input id="sub" type="submit">
+    <br>
+    This is the image you upload:
+    </bf>
+    <p id="b64"></p>
+    <img id="img" height="150">
+
+    <script>
+
+    var sdk = apigClientFactory.newClient({
+        apiKey: 'eJOVHm67AQ5g8SQK1XBvd36r96JhlraY9DxEipw3'
+    });
+    </script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="photo.js"></script>
+
+
+</html>

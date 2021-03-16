@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+    <script type="text/javascript" src="lib/axios/dist/axios.standalone.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/rollups/hmac-sha256.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/rollups/sha256.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/components/hmac.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/components/enc-base64.js"></script>
+    <script type="text/javascript" src="lib/url-template/url-template.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/sigV4Client.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/apiGatewayClient.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/simpleHttpClient.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/utils.js"></script>
+    <script type="text/javascript" src="apigClient.js"></script>
+
+	<head>
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    	<script type = "text/javascript" src="search.js"></script>
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+		<iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
+		<div class="container">
+		  <form action="#" onsubmit="get_images(this)" id="search-form" target="dummyframe">
+		    <input name="q" type="text" placeholder="Search Google..." autocomplete="off">
+		  </form>
+		  <p class="info"></p>
+		</div>
+
+		<div class="row" id = "album">
+		</div>
+
+	</body>
+
+    <script>
+
+    var sdk = apigClientFactory.newClient({
+        apiKey: 'eJOVHm67AQ5g8SQK1XBvd36r96JhlraY9DxEipw3'
+    });
+    </script>
+    
+
+
+
+</html>
