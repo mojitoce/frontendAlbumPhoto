@@ -90,10 +90,11 @@ function get_images(event){
 
   sdk.searchGet(params,{},{}).then(function(result){
     const album = document.querySelector("#album");
-    var links = JSON.parse(result['data']['body']);
+    // console.log(result);
+    var links = result['data']['result'];
 
     let i = 0;
-    for (urls of links['result']) {
+    for (urls of links) {
       if (i === 5) { break; }
       let ins = "<b>" + urls['labels'].join(',') + "<b>";
       ins += '<div class="column"><img src="' + urls['url'] + '"></div>'

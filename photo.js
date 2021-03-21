@@ -20,13 +20,16 @@ $( document ).ready(function() {
     if (files && files[0]) {
       reader.onloadend = function () {
         // Since it contains the Data URI, we should remove the prefix and keep only Base64 string
-        var b64 = reader.result.replace(/^data:.+;base64,/, '');
+        var b64 = reader.result.split(",")[1];// reader.result.replace(/^data:.+;base64,/, '');
         var content_type = reader.result.replace(/^data:/,'').replace(/;base64,.+/,'');
         var label = document.getElementById("label").value;
         document.getElementById("img").src = reader.result;
         var filename = create_UUID();
-        // console.log({"Content-Type": content_type, "x-amz-meta-customLabels":label});
+
+        // // console.log({"Content-Type": content_type, "x-amz-meta-customLabels":label});
+
         sdk.uploadPut({"Content-Type": "application/json", "x-amz-meta-customLabels":label, "filename":filename}, b64, {});
+        // console.log(reader.result);
       };
     }
 

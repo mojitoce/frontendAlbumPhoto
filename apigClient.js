@@ -53,7 +53,7 @@ apigClientFactory.newClient = function (config) {
 
     
     // extract endpoint and path from url
-    var invokeUrl = 'https://6qw6mk04v8.execute-api.us-east-2.amazonaws.com/v1';
+    var invokeUrl = 'https://r0jqybd5ag.execute-api.us-east-1.amazonaws.com/Stage';
     var endpoint = /(^https?:\/\/[^\/]+)/g.exec(invokeUrl)[1];
     var pathComponent = invokeUrl.substring(endpoint.length);
 
@@ -98,6 +98,24 @@ apigClientFactory.newClient = function (config) {
         
         
         return apiGatewayClient.makeRequest(searchGetRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.searchOptions = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var searchOptionsRequest = {
+            verb: 'options'.toUpperCase(),
+            path: pathComponent + uritemplate('/search').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(searchOptionsRequest, authType, additionalParams, config.apiKey);
     };
     
     
